@@ -1,0 +1,132 @@
+@charset "utf-8";
+/* paragraph font */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap');
+/* for h2 fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+/* for Japanese characters */
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+/* footer and navbar font */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,500;1,500&display=swap');
+/* for Chinese charatcers */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap');
+
+
+/* background style */
+body {
+    background-image: linear-gradient(to bottom right, rgb(213, 253, 255), rgb(250, 250, 215));
+}
+
+/* section background style */
+body section {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: rgba(255, 255, 255, 0.2) 15px 0px 10px,
+        rgba(255, 255, 255, 0.2) -15px 0px 10px;
+    border-left: solid 2px white;
+    border-right: solid 2px white;
+
+}
+
+/* navbar and footer style */
+nav,
+footer {
+    font-family: 'Libre Bodoni', serif;
+    font-weight: normal;
+}
+
+.bg-darkBlue {
+    background-color: rgb(6, 0, 39) !important;
+}
+
+
+/* welcome line style */
+div#welcome {
+    border-left: rgb(215, 215, 215) 5px solid;
+    padding: 10px 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.381), rgba(255, 255, 255, 0.381)),url("../img/wrinkedPaper.jpg");
+}
+
+div#welcome h1#gegeHere_xl {
+    font-size: 4.5em;
+}
+
+
+span.japanese {
+    font-family: 'Sawarabi Mincho', serif;
+}
+
+span.chinese {
+    font-family: 'Noto Serif SC', serif;
+}
+
+/* hero style */
+div#hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.381), rgba(0, 0, 0, 0.381)), url("../img/myheart.jpg");
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+div#hero h1 {
+    font-size: 4em;
+}
+
+/* h2 header style */
+h2 {
+    font-family: 'Noto Serif', serif;
+    font-weight: bold;
+    text-shadow: rgb(239, 216, 255) 6px 6px 2px;
+}
+
+/* drawing part text style */
+p#drawingText {
+    border: 1px solid black;
+    padding: 10px;
+    box-shadow: 10px 15px;
+}
+
+/* image style */
+figure figcaption {
+    background-color: white;
+    padding: 10px 3px;
+
+}
+
+
+/* quote style */
+div#quotes {
+    background-image: url("../img/Notebook.jpg");
+    line-height: 2em;
+}
+
+quote#myQuote::before {
+    content: open-quote;
+    font-size: 1.5em;
+    font-family: 'Libre Bodoni', serif;
+}
+
+quote#myQuote::after {
+    content: close-quote;
+    font-size: 1.5em;
+    font-family: 'Libre Bodoni', serif;
+}
+
+quote#myQuote {
+    quotes: "\201C""\201E";
+    font-size: 1.6em;
+    font-family: 'Noto Serif SC', serif;
+}
+
+/* paragraph style */
+p {
+    font-family: 'Lora', serif;
+    font-size: 1.2em;
+}
+
+/* table style */
+.table-danger {
+    --bs-table-bg: rgb(255, 239, 239) !important;
+    --bs-table-striped-bg: rgb(255, 244, 244) !important;
+    --bs-table-hover-bg: rgb(255, 224, 224) !important;
+}

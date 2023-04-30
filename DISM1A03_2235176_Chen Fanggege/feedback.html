@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- 
+
+        Author: Chen Fanggege
+        Class: DISM 03
+        
+        Filename: feedback.html
+        Date created: June 29th 2022
+        Content: Feedback form for visitors
+
+    -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Feedback</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="css/feedback_styles.css" rel="stylesheet" />
+    <script src="js/greetingInNavbar.js" defer></script>
+    <script src="js/form_validation.js" defer></script>
+</head>
+
+<body>
+    <!-- for using icons -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="bootstrap" viewBox="0 0 118 94">
+            <title>Bootstrap</title>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z">
+            </path>
+        </symbol>
+        <symbol id="facebook" viewBox="0 0 16 16">
+            <path
+                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z">
+            </path>
+        </symbol>
+        <symbol id="instagram" viewBox="0 0 16 16">
+            <path
+                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
+            </path>
+        </symbol>
+        <symbol id="twitter" viewBox="0 0 16 16">
+            <path
+                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z">
+            </path>
+        </symbol>
+    </svg>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-darkBlue fixed-top" aria-label="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">isMeGegeee =)</a>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar"
+                aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse" id="myNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="index.html">Home
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-house-door-fill mb-1" viewBox="0 0 16 16">
+                                <path
+                                    d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z">
+                                </path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="spLife.html">My SP Life
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-flag-fill mb-1" viewBox="0 0 16 16">
+                                <path
+                                    d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001">
+                                </path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="career.html">Career Prospects
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-briefcase-fill mb-1" viewBox="0 0 16 16">
+                                <path
+                                    d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z">
+                                </path>
+                                <path
+                                    d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z">
+                                </path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="feedback.html">Feedback
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-vector-pen mb-1" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M10.646.646a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1 0 .708l-1.902 1.902-.829 3.313a1.5 1.5 0 0 1-1.024 1.073L1.254 14.746 4.358 4.4A1.5 1.5 0 0 1 5.43 3.377l3.313-.828L10.646.646zm-1.8 2.908-3.173.793a.5.5 0 0 0-.358.342l-2.57 8.565 8.567-2.57a.5.5 0 0 0 .34-.357l.794-3.174-3.6-3.6z">
+                                </path>
+                                <path fill-rule="evenodd"
+                                    d="M2.832 13.228 8 9a1 1 0 1 0-1-1l-4.228 5.168-.026.086.086-.026z"></path>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-item d-none d-lg-block d-xl-none text-light" id="greetingLine">" I hope you are happy
+                    today! "</div>
+                <div class="nav-item d-none d-xl-block text-light" id="greetingLine_xl">" I hope you are happy today! "
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <section class="container-md px-3 pb-3 fs-5">
+        <h1 class="display-2 text-center mt-5 pt-3">Feedback</h1>
+
+        <!-- feedback form -->
+        <form class="needs-validation" novalidate>
+            <!-- visitor's information: name, nationality, email, age -->
+            <fieldset class="mb-3 px-3">
+                <div class="row mb-3">
+                    <div class="col-12 col-sm-6">
+                        <label for="visitorFirstName" class="form-label">*First name</label>
+                        <input type="text" class="form-control" id="visitorFirstName" required>
+                        <div class="valid-feedback">
+                            Looks good :)
+                        </div>
+                        <div class="invalid-feedback">
+                            Please leave your first name...
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 py-2 py-sm-0">
+                        <label for="visitorLastName" class="form-label">Last name</label>
+                        <input type="text" class="form-control" id="visitorLastName" placeholder="(optional)">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-12 col-sm-5">
+                        <label for="visitorEmail" class="form-label">*Email</label>
+                        <input type="email" class="form-control" id="visitorEmail" required>
+                        <div class="valid-feedback">
+                            Looks good :)
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a valid email :(
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-4 py-2 py-sm-0">
+                        <label for="visitorCountry" class="form-label">Where are you?</label>
+                        <select id="visitorCountry" class="form-select">
+                            <option selected>Singapore</option>
+                            <option>China</option>
+                            <option>Japan</option>
+                            <option>USA</option>
+                            <option>Other countries</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12 col-sm-3 py-2 py-sm-0">
+                        <label for="visitorAge" class="form-label">*Your age</label>
+                        <select id="visitorAge" class="form-select" required>
+                            <option></option>
+                            <option>under 18</option>
+                            <option>18 to 36</option>
+                            <option>36 to 50</option>
+                            <option>older than 50</option>
+                            <option>Prefer not to say</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+
+            <!-- visitor's experience about this website -->
+            <fieldset class="mb-3 px-3">
+                <div class="row mb-3">
+                    <label class="col-form-label col-sm-5">How do you get to know this website?</label>
+                    <div class="col border border-2 p-3 mx-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="friendsFamily"
+                                value="friends&Family">
+                            <label class="form-check-label" for="friendsFamily">
+                                From friends/family
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="socialMedia"
+                                value="socialMedia">
+                            <label class="form-check-label" for="socialMedia">
+                                Social media (Twi, Ins, Facebook...)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="onlineSurfing"
+                                value="onlineSurfing">
+                            <label class="form-check-label" for="onlineSurfing">
+                                Just surfing then see it
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="Others" value="Others">
+                            <label class="form-check-label" for="Others">
+                                Others
+                            </label>
+                            <input class="form-control " type="text" id="otherSource"
+                                placeholder="Fill in to let me know! =)">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="my-3">
+                    <label for="likeRating" class="form-label">How do you like this website? (sliding to right means
+                        like!)</label>
+                    <input type="range" class="form-range" id="likeRating">
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-form-label col-sm-5">What aspect(s) of this website do you like?</label>
+                    <div class="col border border-2 p-3 mx-2">
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="layoutDesign" id="layoutDesign">
+                            <label class="form-check-label" for="layoutDesign">
+                                Layout design
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="coloursAndStyles"
+                                id="coloursAndStyles">
+                            <label class="form-check-label" for="coloursAndStyles">
+                                Colours and style
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="content" id="content">
+                            <label class="form-check-label" for="content">
+                                Content
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Others" id="Other">
+                            <label class="form-check-label" for="Other">
+                                Others
+                            </label>
+                            <input class="form-control" type="text" placeholder="Fill in to let me know! =)">
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- textarea for comments and suggestions -->
+                <div class="form-floating my-3">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                    <label for="floatingTextarea">Comments/Suggestions</label>
+                </div>
+
+                <!-- agree information provided to use for website improvement -->
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" value="" id="allowUseInfo" required>
+                    <label class="form-check-label" for="allowUseInfo">
+                        I allow information provided above to be used for improvement purpose
+                    </label>
+                    <div class="invalid-feedback">
+                        *You must tick this checkbox before submitting.
+                    </div>
+                </div>
+
+                <!-- submit button -->
+                <div class="col-12 text-center">
+                    <button class="btn btn-pink border border-pink border-2" type="submit" id="submitButton">
+                        Submit form
+                    </button>
+                </div>
+            </fieldset>
+
+            <div class="row">
+                <div class="col-12 text-muted text-center">* Your ideas really matter! *</div>
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <!-- footer -->
+    <div class="container-fluid p-0">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center p-3 mt-4 border-top bg-light">
+            <div class="col-12 col-md-8 d-flex justify-content-center justify-content-md-start align-items-center">
+                <div class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z" />
+                    </svg>
+                </div>
+
+                <span class="mb-3 mb-md-0 text-muted">Copyright© 2022 Chen Fanggege All Rights Reserved</span>
+            </div>
+
+            <ul class="nav col-12 col-md-4 d-flex justify-content-center justify-content-md-end list-unstyled ">
+                <li class="ms-3"><a class="text-muted" href="https://twitter.com/?lang=en"><svg class="bi" width="24"
+                            height="24">
+                            <use xlink:href="#twitter"></use>
+                        </svg></a></li>
+                <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/"><svg class="bi" width="24"
+                            height="24">
+                            <use xlink:href="#instagram"></use>
+                        </svg></a></li>
+                <li class="ms-3"><a class="text-muted" href="https://www.facebook.com/"><svg class="bi" width="24"
+                            height="24">
+                            <use xlink:href="#facebook"></use>
+                        </svg></a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <!-- bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
